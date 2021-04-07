@@ -8,6 +8,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // handle underflow and overflow of data array
     let amount = parseInt(count);
     if (amount <= 0) {
       amount = 1;
@@ -15,7 +16,7 @@ function App() {
     if (amount > data.length) {
       amount = data.length - 1;
     }
-    setText(data.slice(0, amount));
+    setText(data.slice(0, amount)); //.slice function slice array 1st param of function is starting point and 2nd is end point and end point is not included in resultant array
   };
 
   return (
@@ -23,6 +24,7 @@ function App() {
       <h2>tired of boring lorem ipsum</h2>
       <form className="lorem-form" onSubmit={handleSubmit}>
         <label htmlFor="amount">paragrapgh: </label>
+        {/* controlled input field: input bind with state using value attribute of input field then must specify the onChange event of input */}
         <input
           type="number"
           name="amount"
